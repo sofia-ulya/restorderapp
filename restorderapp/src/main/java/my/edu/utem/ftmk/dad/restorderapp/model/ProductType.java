@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//table productType consist of Column productTypeId[PK], name
 @Entity
 @Table(name="producttype")
 public class ProductType {
@@ -14,15 +15,15 @@ public class ProductType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="productTypeId")
-	private String productTypeId;
+	private int productTypeId;
 	
 	@Column(name="name")
 	private String name;
 	
-	public String getProductTypeId() {
+	public int getProductTypeId() {
 		return productTypeId;
 	}
-	public void setProductTypeId(String productTypeId) {
+	public void setProductTypeId(int productTypeId) {
 		this.productTypeId = productTypeId;
 	}
 	public String getName() {

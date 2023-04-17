@@ -11,17 +11,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import my.edu.utem.ftmk.dad.restorderapp.model.ProductType;
 import my.edu.utem.ftmk.dad.restorderapp.repository.ProductTypeRepository;
 
+//controller class which define REST web service method.
+@RestController
+@RequestMapping("/api/producttypes")
 public class ProductTypeRESTController {
 
 	@Autowired
 	private ProductTypeRepository productTypeRepository;
 	
 	//method to delete a record from table producttype
-	@DeleteMapping("{orderTypeId}")
+	@DeleteMapping("{productTypeId}")
 	public ResponseEntity<HttpStatus> deleteProductType(@PathVariable long productTypeId){
 		productTypeRepository.deleteById(productTypeId);
 		return new ResponseEntity<>(HttpStatus.OK);
